@@ -4,13 +4,13 @@
     "slug": "Navegación GlueStack",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/tics-icon.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "starterkitexpo",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/images/tics-icon.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#141414"
     },
     "ios": {
