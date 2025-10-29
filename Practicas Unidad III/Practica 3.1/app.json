@@ -21,7 +21,8 @@
         "foregroundImage": "./assets/images/tics-icon.png",
         "backgroundColor": "#141414"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.anonymous.NavegacinGlueStack"
     },
     "web": {
       "bundler": "metro",

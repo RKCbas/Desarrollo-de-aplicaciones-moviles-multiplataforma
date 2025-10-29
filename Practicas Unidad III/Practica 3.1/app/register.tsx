@@ -47,7 +47,7 @@ export default function Register() {
       {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }}> */}
       <Box className="flex-1 justify-center items-center px-6 py-12">
         {/* Contenedor del formulario */}
-        <Box className="w-full max-w-md bg-background-0/80 backdrop-blur-md rounded-2xl p-8 shadow-lg">
+        <Box className="w-full max-w-md bg-background-0 backdrop-blur-md rounded-2xl p-8 shadow-lg">
           {/* Logo y título */}
           <Box className="items-center mb-6">
             {/* <Box className="mb-3">

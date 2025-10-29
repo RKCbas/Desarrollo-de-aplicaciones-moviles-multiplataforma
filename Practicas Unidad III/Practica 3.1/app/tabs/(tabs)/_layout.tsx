@@ -1,77 +1,137 @@
 // app/(tabs)/_layout.tsx
-import React, { useCallback } from 'react';
+import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Tabs } from 'expo-router';
+import { Drawer } from 'expo-router/drawer';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
 
-interface TabBarIconProps {
+// Componente para los iconos del drawer
+interface DrawerIconProps {
   readonly name: React.ComponentProps<typeof FontAwesome>['name'];
   readonly color: string;
+  readonly size?: number;
   readonly focused?: boolean;
 }
 
-function TabBarIcon({ name, color, focused }: TabBarIconProps) {
+function DrawerIcon({ name, color, size = 24, focused }: DrawerIconProps) {
   return (
     <FontAwesome 
       name={name}
-      size={focused ? 26 : 22}
+      size={size}
       color={color}
-      style={{ marginBottom: -3 }} 
+      style={{ marginLeft: 5 }}
     />
   );
 }
 
-export const createTabBarIcon = (iconName: React.ComponentProps<typeof FontAwesome>['name']) => {
-  return ({ color, focused }: { color: string; focused: boolean }) => (
-    <TabBarIcon 
+const createDrawerIcon = (iconName: React.ComponentProps<typeof FontAwesome>['name']) => {
+  return ({ color, size, focused }: { color: string; size: number; focused: boolean }) => (
+    <DrawerIcon 
       name={iconName} 
       color={color}
+      size={size}
       focused={focused}
     />
   );
 };
 
-export default function TabLayout() {
-  // Memoizar las funciones de iconos con diferentes iconos
-  const tab1Icon = useCallback(createTabBarIcon('user'), []);
-  const tab2Icon = useCallback(createTabBarIcon('user'), []);
-  
-  // Otras opciones de iconos populares:
-  // 'home', 'user', 'cog', 'search', 'bell', 'heart', 
-  // 'compass', 'map', 'inbox', 'list', 'bars', 'book'
-
+export default function DrawerLayout() {
   return (
-    <Tabs
+    <Drawer
       screenOptions={{
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
+        // Header
         headerShown: useClientOnlyValue(false, true),
-        tabBarActiveTintColor: '#667eea',
-        tabBarInactiveTintColor: '#999',
-        tabBarStyle: {
+        headerStyle: {
+          backgroundColor: '#667eea',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontSize: 14
+        },
+        
+        // Drawer
+        drawerActiveTintColor: '#667eea',
+        drawerInactiveTintColor: '#999',
+        drawerActiveBackgroundColor: '#f0f0ff',
+        drawerStyle: {
           backgroundColor: '#fff',
-          borderTopWidth: 1,
-          borderTopColor: '#f0f0f0',
-          paddingBottom: 5,
-          paddingTop: 5,
-          height: 60,
+          width: 280,
+        },
+        drawerLabelStyle: {
+          fontSize: 16,
+          marginLeft: -10,
+        },
+        drawerItemStyle: {
+          borderRadius: 8,
+          marginHorizontal: 10,
+          marginVertical: 4,
         },
       }}
     >
-      <Tabs.Screen
-        name="Home"
+      <Drawer.Screen
+        name="home"
         options={{
-          title: 'Home',
-          tabBarIcon: tab1Icon,
+          title: ' Marco Sebastián Hernández Parada - Inicio',
+          drawerLabel: 'Inicio',
+          drawerIcon: createDrawerIcon('home'),
         }}
       />
-      <Tabs.Screen
+      
+      <Drawer.Screen
         name="forms"
         options={{
-          title: 'Forms',
-          tabBarIcon: tab2Icon,
+          title: ' Marco Sebastián Hernández Parada - Formularios',
+          drawerLabel: 'Formularios',
+          drawerIcon: createDrawerIcon('edit'),
         }}
       />
-    </Tabs>
+
+      {/* Puedes agregar más pantallas aquí */}
+      {/* 
+      <Drawer.Screen
+        name="profile"
+        options={{
+          title: 'Perfil',
+          drawerLabel: 'Perfil',
+          drawerIcon: createDrawerIcon('user'),
+        }}
+      />
+      
+      <Drawer.Screen
+        name="settings"
+        options={{
+          title: 'Configuración',
+          drawerLabel: 'Configuración',
+          drawerIcon: createDrawerIcon('cog'),
+        }}
+      />
+      */}
+    </Drawer>
   );
 }
+
+/* 
+============================================
+📝 ICONOS DISPONIBLES (FontAwesome)
+============================================
+
+Navegación:
+- 'home', 'compass', 'map', 'globe'
+
+Usuario:
+- 'user', 'user-circle', 'users', 'id-card'
+
+Configuración:
+- 'cog', 'wrench', 'sliders'
+
+Contenido:
+- 'edit', 'file', 'folder', 'book', 'list'
+
+Social:
+- 'heart', 'star', 'comment', 'bell'
+
+Utilidades:
+- 'search', 'inbox', 'calendar', 'envelope'
+
+============================================
+*/
