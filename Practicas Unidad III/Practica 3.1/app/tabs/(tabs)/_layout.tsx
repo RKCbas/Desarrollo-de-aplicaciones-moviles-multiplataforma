@@ -1,35 +1,9 @@
 // app/(tabs)/_layout.tsx
 import React, { useCallback } from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+
 import { Tabs } from 'expo-router';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-
-interface TabBarIconProps {
-  readonly name: React.ComponentProps<typeof FontAwesome>['name'];
-  readonly color: string;
-  readonly focused?: boolean;
-}
-
-function TabBarIcon({ name, color, focused }: TabBarIconProps) {
-  return (
-    <FontAwesome 
-      name={name}
-      size={focused ? 26 : 22}
-      color={color}
-      style={{ marginBottom: -3 }} 
-    />
-  );
-}
-
-const createTabBarIcon = (iconName: React.ComponentProps<typeof FontAwesome>['name']) => {
-  return ({ color, focused }: { color: string; focused: boolean }) => (
-    <TabBarIcon 
-      name={iconName} 
-      color={color}
-      focused={focused}
-    />
-  );
-};
+import { createTabBarIcon } from '@/components/shared/tabBarIcon';
 
 export default function TabLayout() {
   // Memoizar las funciones de iconos con diferentes iconos
@@ -59,9 +33,9 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="tab1"
+        name="Home"
         options={{
-          title: 'Tab 1',
+          title: 'Home',
           tabBarIcon: tab1Icon,
         }}
       />
