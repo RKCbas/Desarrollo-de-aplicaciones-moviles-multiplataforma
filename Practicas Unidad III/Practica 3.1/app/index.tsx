@@ -32,7 +32,7 @@ export default function Home() {
     } else {
       Alert.alert("¡Login exitoso!", `Bienvenido ${email}`);
       login(email);
-      router.replace("/tabs/tab1");
+      router.replace("/tabs/home");
     }
   };
 
