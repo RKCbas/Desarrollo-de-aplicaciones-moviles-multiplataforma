@@ -1,9 +1,18 @@
 import { Divider } from "@/components/ui/divider";
 import { Heading } from "@/components/ui/heading";
 import React from "react";
-
+import {
+  FormControl,
+  FormControlLabel,
+  FormControlLabelText,
+  FormControlHelper,
+  FormControlHelperText,
+  FormControlError,
+  FormControlErrorIcon,
+  FormControlErrorText,
+} from "@/components/ui/form-control";
 // import { Box } from "@/components/ui/box";
-import { CircleIcon } from "@/components/ui/icon";
+import { AlertCircleIcon, CircleIcon } from "@/components/ui/icon";
 import { HStack } from "@/components/ui/hstack";
 import FormsExamples1 from "@/components/forms/FormsExamples1";
 import { Dimensions, ScrollView } from "react-native";
@@ -27,22 +36,37 @@ export default function FormsScreen() {
         <FormsExamples1></FormsExamples1>
 
         <Center>
-          <RadioGroup value={rValues} onChange={setRValues}>
-            <HStack space="2xl">
-              <Radio value="Credit Card">
-                <RadioIndicator>
-                  <RadioIcon as={CircleIcon} />
-                </RadioIndicator>
-                <RadioLabel>Credit Card</RadioLabel>
-              </Radio>
-              <Radio value="Cash On Delivery">
-                <RadioIndicator>
-                  <RadioIcon as={CircleIcon} />
-                </RadioIndicator>
-                <RadioLabel>Cash On Delivery</RadioLabel>
-              </Radio>
-            </HStack>
-          </RadioGroup>
+          <FormControl
+            isRequired
+            isInvalid={!rValues}
+            size="sm"
+            className="max-w-[200px] w-full"
+          >
+            <FormControlLabel>
+              <FormControlLabelText>Select one</FormControlLabelText>
+            </FormControlLabel>
+            <RadioGroup value={rValues} onChange={setRValues}>
+              <HStack space="2xl" className="mt-2">
+                <Radio value="Credit Card">
+                  <RadioIndicator>
+                    <RadioIcon as={CircleIcon} />
+                  </RadioIndicator>
+                  <RadioLabel>Credit Card</RadioLabel>
+                </Radio>
+                <Radio value="">
+                  <RadioIndicator>
+                    <RadioIcon as={CircleIcon} />
+                  </RadioIndicator>
+                  <RadioLabel>Nothing</RadioLabel>
+                </Radio>
+                
+              </HStack>
+            </RadioGroup>
+            <FormControlError>
+              <FormControlErrorIcon as={AlertCircleIcon} />
+              <FormControlErrorText>Mandatory field</FormControlErrorText>
+            </FormControlError>
+          </FormControl>
         </Center>
 
         <FormsExamples2></FormsExamples2>
