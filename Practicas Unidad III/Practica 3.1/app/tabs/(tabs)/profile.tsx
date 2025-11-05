@@ -17,7 +17,7 @@ import { Badge, BadgeText } from "@/components/ui/badge";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { EditIcon, ShareIcon } from "@/components/ui/icon";
+import { EditIcon, Icon, ShareIcon } from "@/components/ui/icon";
 import ProfileOptions from "@/components/profile/ProfileOptions";
 import { Grid, GridItem } from "@/components/ui/grid";
 import { Spinner } from "@/components/ui/spinner";
@@ -145,7 +145,7 @@ export default function ProfileScreen() {
               variant="outline"
               onPress={() => console.log("Compartir perfil")}
             >
-              <ButtonIcon as={ShareIcon} />
+              <Icon as={ShareIcon} />
             </Button>
           </HStack>
         </VStack>
