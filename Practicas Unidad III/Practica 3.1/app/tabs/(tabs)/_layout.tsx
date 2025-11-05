@@ -86,16 +86,17 @@ export default function DrawerLayout() {
         }}
       />
 
-      {/* Puedes agregar más pantallas aquí */}
-      {/* 
       <Drawer.Screen
         name="profile"
         options={{
-          title: 'Perfil',
+          title: ' Marco Sebastián Hernández Parada -Perfil',
           drawerLabel: 'Perfil',
           drawerIcon: createDrawerIcon('user'),
         }}
       />
+      
+      {/* Puedes agregar más pantallas aquí */}
+      {/* 
       
       <Drawer.Screen
         name="settings"
