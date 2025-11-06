@@ -1,12 +1,12 @@
 // app/(tabs)/_layout.tsx
-import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Drawer } from 'expo-router/drawer';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import React from "react";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Drawer } from "expo-router/drawer";
+import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 
 // Componente para los iconos del drawer
 interface DrawerIconProps {
-  readonly name: React.ComponentProps<typeof FontAwesome>['name'];
+  readonly name: React.ComponentProps<typeof FontAwesome>["name"];
   readonly color: string;
   readonly size?: number;
   readonly focused?: boolean;
@@ -14,7 +14,7 @@ interface DrawerIconProps {
 
 function DrawerIcon({ name, color, size = 24, focused }: DrawerIconProps) {
   return (
-    <FontAwesome 
+    <FontAwesome
       name={name}
       size={size}
       color={color}
@@ -23,14 +23,19 @@ function DrawerIcon({ name, color, size = 24, focused }: DrawerIconProps) {
   );
 }
 
-const createDrawerIcon = (iconName: React.ComponentProps<typeof FontAwesome>['name']) => {
-  return ({ color, size, focused }: { color: string; size: number; focused: boolean }) => (
-    <DrawerIcon 
-      name={iconName} 
-      color={color}
-      size={size}
-      focused={focused}
-    />
+const createDrawerIcon = (
+  iconName: React.ComponentProps<typeof FontAwesome>["name"]
+) => {
+  return ({
+    color,
+    size,
+    focused,
+  }: {
+    color: string;
+    size: number;
+    focused: boolean;
+  }) => (
+    <DrawerIcon name={iconName} color={color} size={size} focused={focused} />
   );
 };
 
@@ -41,20 +46,20 @@ export default function DrawerLayout() {
         // Header
         headerShown: useClientOnlyValue(false, true),
         headerStyle: {
-          backgroundColor: '#667eea',
+          backgroundColor: "#667eea",
         },
-        headerTintColor: '#fff',
+        headerTintColor: "#fff",
         headerTitleStyle: {
-          fontWeight: 'bold',
-          fontSize: 14
+          fontWeight: "bold",
+          fontSize: 14,
         },
-        
+
         // Drawer
-        drawerActiveTintColor: '#667eea',
-        drawerInactiveTintColor: '#999',
-        drawerActiveBackgroundColor: '#f0f0ff',
+        drawerActiveTintColor: "#667eea",
+        drawerInactiveTintColor: "#999",
+        drawerActiveBackgroundColor: "#f0f0ff",
         drawerStyle: {
-          backgroundColor: '#fff',
+          backgroundColor: "#fff",
           width: 280,
         },
         drawerLabelStyle: {
@@ -71,30 +76,39 @@ export default function DrawerLayout() {
       <Drawer.Screen
         name="home"
         options={{
-          title: ' Marco Sebastián Hernández Parada - Inicio',
-          drawerLabel: 'Inicio',
-          drawerIcon: createDrawerIcon('home'),
+          title: " Marco Sebastián Hernández Parada - Inicio",
+          drawerLabel: "Inicio",
+          drawerIcon: createDrawerIcon("home"),
         }}
       />
-      
+
       <Drawer.Screen
         name="forms"
         options={{
-          title: ' Marco Sebastián Hernández Parada - Formularios',
-          drawerLabel: 'Formularios',
-          drawerIcon: createDrawerIcon('edit'),
+          title: " Marco Sebastián Hernández Parada - Formularios",
+          drawerLabel: "Formularios",
+          drawerIcon: createDrawerIcon("edit"),
         }}
       />
 
       <Drawer.Screen
         name="profile"
         options={{
-          title: ' Marco Sebastián Hernández Parada -Perfil',
-          drawerLabel: 'Perfil',
-          drawerIcon: createDrawerIcon('user'),
+          title: " Marco Sebastián Hernández Parada -Perfil",
+          drawerLabel: "Perfil",
+          drawerIcon: createDrawerIcon("user"),
         }}
       />
-      
+
+      <Drawer.Screen
+        name="display"
+        options={{
+          title: "Display",
+          drawerLabel: "Display",
+          drawerIcon: createDrawerIcon("cog"),
+        }}
+      />
+
       {/* Puedes agregar más pantallas aquí */}
       {/* 
       

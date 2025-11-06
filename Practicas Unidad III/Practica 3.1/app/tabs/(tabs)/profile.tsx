@@ -374,7 +374,9 @@ export default function ProfileScreen() {
         <ProfileOptions></ProfileOptions>
 
         <Divider className="my-6" />
+        
         <Spinner size="large" color="grey" />
+        
         <Divider className="my-6" />
         {/* Botón de cerrar sesión */}
         <Button action="negative" className="mb-8" onPress={handleLogout}>
