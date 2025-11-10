@@ -94,7 +94,7 @@ export default function DrawerLayout() {
       <Drawer.Screen
         name="profile"
         options={{
-          title: " Marco Sebastián Hernández Parada -Perfil",
+          title: " Marco Sebastián Hernández Parada - Perfil",
           drawerLabel: "Perfil",
           drawerIcon: createDrawerIcon("user"),
         }}
@@ -103,7 +103,7 @@ export default function DrawerLayout() {
       <Drawer.Screen
         name="display"
         options={{
-          title: "Display",
+          title: " Marco Sebastián Hernández Parada - Display",
           drawerLabel: "Display",
           drawerIcon: createDrawerIcon("cog"),
         }}
