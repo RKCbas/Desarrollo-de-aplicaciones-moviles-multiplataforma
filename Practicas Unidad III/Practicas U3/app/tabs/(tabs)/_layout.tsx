@@ -64,7 +64,7 @@ export default function DrawerLayout() {
         },
         drawerLabelStyle: {
           fontSize: 16,
-          marginLeft: -10,
+          marginLeft: 0,
         },
         drawerItemStyle: {
           borderRadius: 8,
@@ -76,7 +76,7 @@ export default function DrawerLayout() {
       <Drawer.Screen
         name="home"
         options={{
-          title: " Marco Sebastián Hernández Parada - Inicio",
+          title: "Marco Sebastián Hernández Parada - Inicio",
           drawerLabel: "Inicio",
           drawerIcon: createDrawerIcon("home"),
         }}
@@ -85,7 +85,7 @@ export default function DrawerLayout() {
       <Drawer.Screen
         name="forms"
         options={{
-          title: " Marco Sebastián Hernández Parada - Formularios",
+          title: "Marco Sebastián Hernández Parada - Formularios",
           drawerLabel: "Formularios",
           drawerIcon: createDrawerIcon("edit"),
         }}
@@ -94,7 +94,7 @@ export default function DrawerLayout() {
       <Drawer.Screen
         name="profile"
         options={{
-          title: " Marco Sebastián Hernández Parada - Perfil",
+          title: "Marco Sebastián Hernández Parada - Perfil",
           drawerLabel: "Perfil",
           drawerIcon: createDrawerIcon("user"),
         }}
@@ -103,9 +103,18 @@ export default function DrawerLayout() {
       <Drawer.Screen
         name="display"
         options={{
-          title: " Marco Sebastián Hernández Parada - Display",
+          title: "Marco Sebastián Hernández Parada - Display",
           drawerLabel: "Display",
           drawerIcon: createDrawerIcon("cog"),
+        }}
+      />
+
+      <Drawer.Screen
+        name="users"
+        options={{
+          title: "Marco Sebastián Hernández Parada - Users",
+          drawerLabel: "Users",
+          drawerIcon: createDrawerIcon("user"),
         }}
       />
 
