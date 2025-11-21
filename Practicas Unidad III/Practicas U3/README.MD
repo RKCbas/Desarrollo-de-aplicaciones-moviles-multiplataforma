@@ -1,4 +1,12 @@
-# Readme temporal
+# Practicas
+
+## Instalación
+
+npm i
+
+crear .env a partir de .env.template
+
+## Readme temporal
 
 La configuración de Expo Router en tu proyecto se define principalmente por dos cosas:
 
